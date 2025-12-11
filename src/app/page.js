@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Header from '@/app/components/Header';
-import KPICards from '@/app/components/KPI';
-import TemperatureChart from '@/app/components/TempChart';
-import FleetTable from '@/app/components/FleetTable';
-import SmartGateFeed from '@/app/components/Smartgate';
-import MapWidget from '@/app/components/MapWidget';
+import Header from '@/app/components/header';
+import KPICards from '@/app/components/kpi';
+import TemperatureChart from '@/app/components/tempChart';
+import FleetTable from '@/app/components/fleetTable';
+import SmartGateFeed from '@/app/components/smartgate';
+import MapWidget from '@/app/components/mapWidget';
 import { INITIAL_TRUCKS, generateChartData } from '@/app/components/utils/data';
 
 const DashboardPage = () => {
@@ -14,7 +14,7 @@ const DashboardPage = () => {
   const [gateLogs, setGateLogs] = useState([]);
   const [chartData, setChartData] = useState(generateChartData());
 
-  // Simulate Real-time Telemetry
+  // Real-time Telemetry
   useEffect(() => {
     const interval = setInterval(() => {
       setTrucks(prevTrucks => prevTrucks.map(t => ({
@@ -26,7 +26,7 @@ const DashboardPage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Simulate Smart Gate Entries
+  // Smart Gate Entries
   useEffect(() => {
     const interval = setInterval(() => {
       const isSafe = Math.random() > 0.3;
@@ -50,13 +50,13 @@ const DashboardPage = () => {
         <KPICards />
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Left Column (2/3) */}
+          
           <div className="lg:col-span-2 space-y-6">
             <TemperatureChart chartData={chartData} />
             <FleetTable trucks={trucks} setTrucks={setTrucks} />
           </div>
 
-          {/* Right Column (1/3) */}
+         
           <div className="space-y-6">
             <SmartGateFeed gateLogs={gateLogs} />
             <MapWidget />
