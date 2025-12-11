@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Header from '@/app/components/header';
-import KPICards from '@/app/components/kpi';
-import TemperatureChart from '@/app/components/tempChart';
-import FleetTable from '@/app/components/fleetTable';
-import SmartGateFeed from '@/app/components/smartgate';
-import MapWidget from '@/app/components/mapWidget';
+import Header from '@/app/components/Header';
+import KPICards from '@/app/components/KPI';
+import TemperatureChart from '@/app/components/TempChart';
+import FleetTable from '@/app/components/FleetTable';
+import SmartGateFeed from '@/app/components/Smartgate';
+import MapWidget from '@/app/components/MapWidget';
 import { INITIAL_TRUCKS, generateChartData } from '@/app/components/utils/data';
 
 const DashboardPage = () => {
